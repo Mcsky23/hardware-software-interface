@@ -6,7 +6,9 @@
 
 int main(void)
 {
-	/* TODO: Test functions */
-
+	unsigned int number = 0x00000001;
+	int bits = 16;
+	rotate_left(&number, bits);
+	printf("%d\n", number);
 	return 0;
 }

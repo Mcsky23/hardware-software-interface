@@ -6,34 +6,26 @@
 
 int my_strcmp(const char *s1, const char *s2)
 {
-	/**
-	 * TODO: implement function
-	 */
-	(void) s1;
-	(void) s2;
-
-	return 0x420;
+	while (*s1 && *s2 && *s1 == *s2) {
+		s1++;
+		s2++;
+	}
+	return *s1 - *s2;
 }
 
 void *my_memcpy(void *dest, const void *src, size_t n)
 {
-	/**
-	 * TODO: implement function
-	 */
-	(void) dest;
-	(void) src;
-	(void) n;
-
+	char *d = dest + n;
+	const char *s = src + n;
+	while (n--) {
+		*--d = *--s;
+	}
 	return dest;
 }
 
 char *my_strcpy(char *dest, const char *src)
 {
-	/**
-	 * TODO: implement function
-	 */
-	(void) dest;
-	(void) src;
-
+	char *d = dest;
+	while ((*d++ = *src++));
 	return dest;
 }

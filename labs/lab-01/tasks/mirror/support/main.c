@@ -8,7 +8,9 @@
 
 int main(void)
 {
-	/* TODO: Test function */
-
+	char s[100];
+	strcpy(s, "Hello, World!");
+	mirror(s);
+	printf("%s\n", s);
 	return 0;
 }

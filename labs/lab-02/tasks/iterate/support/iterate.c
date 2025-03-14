@@ -7,30 +7,30 @@
 
 void print_chars(void)
 {
-	/**
-	 * TODO: Implement function
-	 */
-	(void) v;
+	for (int i = 0; i < 5 * 4; i++) {
+		unsigned char *curr = (unsigned char *) &v + i;
+		printf("%p -> 0x%x\n", curr, *curr);
+	}
 
 	printf("-------------------------------\n");
 }
 
 void print_shorts(void)
 {
-	/**
-	 * TODO: Implement function
-	 */
-	(void) v;
+	for (int i = 0; i < 5 * 2; i++) {
+		unsigned short *curr = (unsigned short *) &v + i;
+		printf("%p -> 0x%x\n", curr, *curr);
+	}
 
 	printf("-------------------------------\n");
 }
 
 void print_ints(void)
 {
-	/**
-	 * TODO: Implement function
-	 */
-	(void) v;
+	for (int i = 0; i < 5; i++) {
+		unsigned int *curr = (unsigned int *) &v + i;
+		printf("%p -> 0x%x\n", curr, *curr);
+	}
 
 	printf("-------------------------------\n");
 }
