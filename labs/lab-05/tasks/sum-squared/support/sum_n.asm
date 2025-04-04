@@ -22,5 +22,20 @@ add_to_sum:
     mov ecx, [num]
     PRINTF32 `Sum(%u): %u\n\x0`, ecx, eax
 
+    mov ecx, [num]
+    xor eax, eax
+add_to_sq_sum:
+    push eax
+    mov eax, ecx
+    mul eax
+    mov edx, eax
+    pop eax
+    add eax, edx
+
+    loop add_to_sq_sum
+
+    mov ecx, [num]
+    PRINTF32 `Sum(%u): %u\n\x0`, ecx, eax
+
     leave
     ret

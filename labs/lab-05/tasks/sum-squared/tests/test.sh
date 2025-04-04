@@ -16,7 +16,7 @@ else
 fi
 
 sum_100=$(echo "$OUTPUT1" | grep "S" | sed -n '1p' | awk '{print $2}')
-sum_squares_100=$(echo "$OUTPUT2" | grep "S" | sed -n '1p' | awk '{print $2}')
+sum_squares_100=$(echo "$OUTPUT2" | grep "S" | sed -n '2p' | awk '{print $2}')
 
 test_sum_100() {
 	if [[ -z $sum_100 ]]; then

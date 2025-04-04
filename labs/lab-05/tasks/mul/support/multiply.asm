@@ -28,7 +28,23 @@ main:
     PRINTF32 `Result is: 0x%hx\n\x0`, eax
 
 
-   ; TODO: Implement multiplication for dw and dd data types.
+    ; TODO: Implement multiplication for dw and dd data types.
+    mov ax, word [num1_w]
+    mov bx, word [num2_w]
+    mul bx
+
+    xor ebx, ebx
+    mov bx, dx
+    sal ebx, 16
+    mov bx, ax
+    PRINTF32 `Result is: 0x%x\n\x0`, ebx
+
+    ; DWORD mul
+    mov eax, dword [num1_d]
+    mov ebx, dword [num2_d]
+    mul ebx
+
+    PRINTF32 `Result is: 0x%x%x\n\x0`, edx, eax
 
     leave
     ret

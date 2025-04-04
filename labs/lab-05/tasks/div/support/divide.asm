@@ -35,8 +35,29 @@ main:
 
 
     ; TODO: Calculate quotient and remainder for 67254 / 1349.
+    xor edx, edx
+    xor ebx, ebx
+    mov eax, dword [dividend2]
+    mov bx, word [divisor2]
+    div ebx
 
+    xor ebx, ebx
+    mov ebx, eax
+    PRINTF32 `Qutient: %hu\n\x0`, ebx
+    xor ebx, ebx
+    mov ebx, edx
+    PRINTF32 `Remainder: %hu\n\x0`, ebx
+
+    
     ; TODO: Calculate quotient and remainder for 69094148 / 87621.
+    xor ebx, ebx
+    xor edx, edx
+    mov eax, dword [dividend3]
+    mov ebx, dword [divisor3]
+    div ebx
+
+    PRINTF32 `Quotient: %u\nRemainder: %u\n\x0`, eax, edx
+
 
     leave
     ret

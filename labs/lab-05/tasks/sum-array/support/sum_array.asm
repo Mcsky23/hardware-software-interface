@@ -31,10 +31,77 @@ add_byte_array_element:
     PRINTF32 `Array sum is %u\n\x0`, eax
 
     ; TODO: Compute sum for elements in word_array and dword_array.
+    mov ecx, ARRAY_SIZE
+    xor eax, eax
+    xor ebx, ebx
+add_word_array_element:
+    mov edx, ecx
+    sal edx, 1
+    mov bx, word [word_array + edx - 2]
+    add eax, ebx
+    loop add_word_array_element
+
+    PRINTF32 `Array sum is %u\n\x0`, eax
+
+    ; TODO: Compute the sum of elements in dword_array
+    mov ecx, ARRAY_SIZE
+    xor eax, eax
+    xor ebx, ebx
+    xor edx, edx
+add_dword_array_element:
+    mov edi, ecx
+    sal edi, 2
+    mov ebx, dword [dword_array + edi - 4]
+    add eax, ebx
+    loop add_dword_array_element
+
+    PRINTF32 `Array sum is %u\n\x0`,eax
 
     ; TODO: Compute the sum of squares for elements in dword_array2
+    mov ecx, ARRAY_SIZE
+    xor eax, eax
+    xor ebx, ebx
+    xor edx, edx
+add_square_array_element:
+    mov edi, ecx
+    sal edi, 2
+    mov ebx, dword [dword_array2 + edi - 4]
+    push eax
+    mov eax, ebx
+    mul eax
+    mov ebx, eax
+    pop eax
+    add eax, ebx
+    
+    loop add_square_array_element
+
+    PRINTF32 `Array sum is %u\n\x0`,eax
 
     ; TODO: Compute the sum of squares for elements in big_numbers_array
+    mov ecx, ARRAY_SIZE
+
+    xor eax, eax
+    xor ebx, ebx
+    xor edx, edx
+    xor esi, esi
+add_square_big_array_element:
+    mov edi, ecx
+    sal edi, 2
+    mov ebx, dword [big_numbers_array + edi - 4]
+    push eax
+    mov eax, ebx
+    mul eax
+    mov ebx, eax
+    pop eax
+    add eax, ebx
+    adc esi, edx
+    
+    loop add_square_big_array_element
+
+    PRINTF32 `Array sum is 0x%x%x\n\x0`, esi, eax
+
+
+    
 
     leave
     ret

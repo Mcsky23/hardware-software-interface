@@ -12,4 +12,23 @@ extern printf
 global main
 main:
 	; TODO: Implement the code to count negative and positive numbers in the array
+    mov ecx, ARRAY_SIZE
+    xor edi, edi ; even
+    xor esi, esi ; odd
+loop_label:
+    mov edx, ecx
+    sal edx, 2
+    mov ebx, dword [dword_array + edx - 4]
+    and ebx, 1
+    test ebx, ebx
+    jnz odd
+    inc edi
+    jmp end_loop
+odd:
+    inc esi
+end_loop:
+    loop loop_label
+
+    PRINTF32 `Odd: %d\nEven: %d\n`, esi, edi
+    
     ret
